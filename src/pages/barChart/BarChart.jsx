@@ -1,9 +1,10 @@
-import React from 'react'
+import Bar from './Bar';
 
 const BarChart = () => {
+
   return (
-    <div>BarChart Page</div>
-  )
-}
+    <Bar/>
+  );
+};
 
 export default BarChart;

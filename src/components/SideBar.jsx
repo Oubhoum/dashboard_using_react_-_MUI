@@ -144,6 +144,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
                                 bgcolor: location.pathname === item.path ? (
+                                    // @ts-ignore
                                     theme.palette.mode === 'dark' ? grey[800] : grey[200]
                                 ) : null,
                             }}
@@ -191,20 +192,17 @@ const SideBar = ({ open, handleDrawerClose }) => {
                 {Array2.map((item) => (
                     <ListItem key={item.path} disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
+                        
                             onClick={() => navigate(item.path)}
-                            sx={[
-                                {
-                                    minHeight: 48,
-                                    px: 2.5,
-                                },
-                                open
-                                    ? {
-                                        justifyContent: 'initial',
-                                    }
-                                    : {
-                                        justifyContent: 'center',
-                                    },
-                            ]}
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                                bgcolor: location.pathname === item.path ? (
+                                    // @ts-ignore
+                                    theme.palette.mode === 'dark' ? grey[800] : grey[200]
+                                ) : null,
+                            }}
                         >
                             <ListItemIcon
                                 sx={[
@@ -249,19 +247,15 @@ const SideBar = ({ open, handleDrawerClose }) => {
                     <ListItem key={item.path} disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             onClick={() => navigate(item.path)}
-                            sx={[
-                                {
-                                    minHeight: 48,
-                                    px: 2.5,
-                                },
-                                open
-                                    ? {
-                                        justifyContent: 'initial',
-                                    }
-                                    : {
-                                        justifyContent: 'center',
-                                    },
-                            ]}
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                                bgcolor: location.pathname === item.path ? (
+                                    // @ts-ignore
+                                    theme.palette.mode === 'dark' ? grey[800] : grey[200]
+                                ) : null,
+                            }}
                         >
                             <ListItemIcon
                                 sx={[
