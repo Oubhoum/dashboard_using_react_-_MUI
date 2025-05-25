@@ -1,8 +1,11 @@
-import React from 'react'
+import Geo from "./Geo";
+
 
 const Geography = () => {
+
   return (
-    <div>Geography Page</div>
+    <Geo />
+
   )
 }
 

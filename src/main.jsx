@@ -18,9 +18,9 @@ import Form from "./pages/form/Form";
 import Calendar from "./pages/calendar/Calendar";
 import Faq from "./pages/FAQ/Faq";
 import BarChart from "./pages/barChart/BarChart";
-import Pie from "./pages/pie/Pie";
 import Line from "./pages/line/Line";
 import Geography from "./pages/geography/Geography";
+import PieChart from "./pages/pie/PieChart";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/bar" element={<BarChart />} />
-      <Route path="/pie" element={<Pie />} />
+      <Route path="/pie" element={<PieChart />} />
       <Route path="/line" element={<Line />} />
       <Route path="/geography" element={<Geography />} />
 

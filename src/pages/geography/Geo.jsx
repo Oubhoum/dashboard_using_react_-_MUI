@@ -1,52 +1,24 @@
+import React from 'react'
+import { geo } from './world_countries.jsx';
+import data from './data.jsx';
+import { ResponsiveChoropleth } from '@nivo/geo'
 import { Box, useTheme } from '@mui/material';
-import { ResponsiveBar } from '@nivo/bar'
+                     
 
-
-
-const data = [
-    {
-        year: 2019,
-        Spain: 900,
-        France: 1400,
-        Germany: 1700,
-    },
-
-    {
-        year: 2020,
-        Spain: 1000,
-        France: 1500,
-        Germany: 1800,
-    },
-
-    {
-        year: 2021,
-        Spain: 1100,
-        France: 1600,
-        Germany: 1900,
-    },
-
-    {
-        year: 2022,
-        Spain: 1200,
-        France: 1700,
-        Germany: 2000,
-    },
-
-    {
-        year: 2023,
-        Spain: 1260,
-        France: 1709,
-        Germany: 2080,
-    },
-];
-
-const Bar = ({isDashboard = false}) => {
+const Geo = ({ isDashboard = false }) => {
 
     const theme = useTheme();
 
     return (
-        <Box sx={{ height: isDashboard? "400px" : "75vh" }}>
-            <ResponsiveBar
+
+
+        <Box sx={{ height: isDashboard ? "400px" : "100vh", width: '100%' }}>
+
+
+
+            <ResponsiveChoropleth
+
+                projectionScale={ isDashboard ? 70 : 150}
 
                 theme={
                     // You can pass this object to the `theme` property
@@ -79,7 +51,7 @@ const Bar = ({isDashboard = false}) => {
                                 },
                                 "text": {
                                     "fontSize": 11,
-                                    "fill": theme.palette.text.primary,
+                                    "fill": theme.palette.text.secondary,
                                     "outlineWidth": 0,
                                     "outlineColor": "#ffffff"
                                 }
@@ -88,7 +60,7 @@ const Bar = ({isDashboard = false}) => {
                         "grid": {
                             "line": {
                                 "stroke": theme.palette.divider,
-                                "strokeWidth": 1
+                                "strokeWidth": 0
                             }
                         },
                         "legends": {
@@ -155,38 +127,42 @@ const Bar = ({isDashboard = false}) => {
                             },
                             "basic": {},
                             "chip": {},
-                            "table": {},
                             "tableCell": {},
                             "tableCellValue": {}
                         }
                     }
-                }/* or Bar for fixed dimensions */
+                }
+                /* or Choropleth for fixed dimensions */
                 data={data}
-                keys={['Spain', 'France', 'Germany']}
-                indexBy="year"
-                margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-
-                colors={{ scheme: 'paired' }}
-
-                borderColor={{ from: 'color', modifiers: [] }}
-                axisBottom={{ legend: isDashboard ? null : 'Year', legendOffset: 42 }}
-                axisLeft={{ legend: isDashboard ? null : 'Salary / Month', legendOffset: -55 }}
-                labelSkipWidth={12}
-                labelSkipHeight={12}
-                legends={[
+                features={geo.features}
+                margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+                colors="spectral"
+                domain={[0, 1000000]}
+                unknownColor="#666666"
+                label="properties.name"
+                valueFormat=".2s"
+                borderWidth={1.5}
+                borderColor="#fff"
+                legends={ isDashboard ? [] : [  
                     {
-                        dataFrom: 'keys',
-                        anchor: 'bottom-right',
+                        anchor: 'bottom-left',
                         direction: 'column',
-                        translateX: 120,
-                        itemsSpacing: 3,
-                        itemWidth: 100,
-                        itemHeight: 16
+                        justify: true,
+                        translateX: 20,
+                        translateY: -40,
+                        itemsSpacing: 0,
+                        itemWidth: 94,
+                        itemHeight: 18,
+                        itemDirection: 'left-to-right',
+                        itemTextColor: theme.palette.text.primary,
+                        itemOpacity: 0.85,
+                        symbolSize: 18
                     }
                 ]}
             />
         </Box>
+
     )
 }
 
-export default Bar
+export default Geo
