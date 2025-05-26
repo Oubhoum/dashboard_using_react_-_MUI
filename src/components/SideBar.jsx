@@ -124,8 +124,42 @@ const SideBar = ({ open, handleDrawerClose }) => {
             </DrawerHeader>
             <Divider />
 
-            <Avatar sx={{ mx: "auto", my: 1, width: open ? 88 : 44, height: open ? 88 : 44, transition: '0.9s', border: "2px solid grey" }} alt="Img" src={mySrc} />
-            <Typography align='center' sx={{ fontSize: open ? 19 : 0, transition: '0.9s' }}>Mowgli</Typography>
+            <Avatar
+                sx={{
+                    mx: "auto",
+                    my: 1,
+                    width:
+                        open
+                            ?
+                            88
+                            :
+                            44,
+                    height:
+                        open
+                            ?
+                            88
+                            :
+                            44,
+                    transition: '0.9s',
+                    border: "2px solid grey"
+                }}
+                alt="Img"
+                src={mySrc}
+            />
+
+            <Typography
+                align='center'
+                sx={{
+                    fontSize:
+                        open
+                            ?
+                            19
+                            :
+                            0,
+                    transition: '0.9s'
+                }}>Mowgli</Typography>
+
+                
             <Typography align='center' sx={{
                 fontSize: open ? 13 : 0, transition: '0.9s', color: theme.
                     // @ts-ignore

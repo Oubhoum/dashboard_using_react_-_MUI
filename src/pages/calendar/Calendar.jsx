@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import { Paper, Stack } from "@mui/material";
@@ -6,6 +6,7 @@ import { formatDate } from "@fullcalendar/core";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "./calendar.css";
+import Header from "../../components/Header";
 
 function renderEventContent(eventInfo) {
   return (
@@ -76,6 +77,9 @@ const Calendar = () => {
   };
 
   return (
+
+    <>
+      <Header title={"CALENDAR"} subtitle={"Welcome to your Calendar"} />
     <Stack direction={"row"}>
       <Paper className="demo-app-sidebar">
          
@@ -113,6 +117,7 @@ const Calendar = () => {
         />
       </div>
     </Stack>
+    </>
   );
 };
 

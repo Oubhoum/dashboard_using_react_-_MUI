@@ -2,6 +2,7 @@ import { DataGrid } from '@mui/x-data-grid'
 import { rows } from './data'
 import { Box, useTheme, Typography } from '@mui/material'
 import { AdminPanelSettingsOutlined, LockOpenOutlined, SecurityOutlined } from '@mui/icons-material';
+import Header from '../../components/Header';
 
 
 
@@ -92,6 +93,9 @@ const Team = () => {
   return (
 
     <Box sx={{ height: 600, width: '98%', mx: "auto", mt: 2 }}>
+
+      <Header title={"TEAM"} subtitle={"Welcome to your Team"} />
+
       <DataGrid
         rows={rows}
         //@ts-ignore        

@@ -1,11 +1,17 @@
-import { Line } from '@nivo/line'
 
+import Header from '../../components/Header'
+import Line from './Line'
 
 
 const LineChart = () => {
   return (
-    // @ts-ignore
-    <Line />
+
+    <>
+
+      <Header title={"LINE CHART"} subtitle={"Welcome to your Line Chart"} />
+      <Line />
+    </>
+
   )
 }
 

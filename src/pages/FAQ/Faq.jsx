@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 import { Stack } from '@mui/material';
+import Header from '../../components/Header';
 const Faq = () => {
 
   const [expanded, setExpanded] = useState(false);
@@ -16,6 +17,9 @@ const Faq = () => {
   return (
 
     <Stack direction={"column"} spacing={2} sx={{ width: '100%' }}>
+
+
+<Header title={"FAQ"} subtitle={"Frequently Asked Questions"} />
 
       <Accordion
         defaultExpanded
